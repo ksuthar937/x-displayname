@@ -11,15 +11,15 @@ function App() {
       alert("First name & Last name should not be empty");
       return;
     }
-    const regex = /^[A-Za-z]+$/;
+    // const regex = /^[A-Za-z]+$/;
 
-    if (!regex.test(firstName) || !regex.test(lastName)) {
-      alert("Fullname should not contain any special character or number");
-      setFirstName("");
-      setLastName("");
-      setFullName("");
-      return;
-    }
+    // if (!regex.test(firstName) || !regex.test(lastName)) {
+    //   alert("Fullname should not contain any special character or number");
+    //   setFirstName("");
+    //   setLastName("");
+    //   setFullName("");
+    //   return;
+    // }
     setFullName(`${firstName} ${lastName}`);
     setFirstName("");
     setLastName("");

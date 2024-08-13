@@ -11,6 +11,12 @@ function App() {
       alert("First name & Last name should not be empty");
       return;
     }
+    const regex = /^[A-Za-z]+$/;
+
+    if (!regex.test(firstName) || !regex.test(lastName)) {
+      alert("Fullname should not contain any special character or number");
+      return;
+    }
     setFullName(`${firstName} ${lastName}`);
     setFirstName("");
     setLastName("");
@@ -42,7 +48,7 @@ function App() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      {fullName.length > 0 && <p>Full Name : {fullName}</p>}
+      {fullName.length > 0 && <p>Full Name: {fullName}</p>}
     </main>
   );
 }

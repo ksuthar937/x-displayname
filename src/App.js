@@ -15,6 +15,9 @@ function App() {
 
     if (!regex.test(firstName) || !regex.test(lastName)) {
       alert("Fullname should not contain any special character or number");
+      setFirstName("");
+      setLastName("");
+      setFullName("");
       return;
     }
     setFullName(`${firstName} ${lastName}`);

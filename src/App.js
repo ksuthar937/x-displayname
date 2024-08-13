@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!firstName || !lastName) {
+      alert("First name & Last name should not be empty");
+      return;
+    }
+    setFullName(`${firstName} ${lastName}`);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>Full Name Display</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="item">
+          <label htmlFor="firstName">First Name :</label>
+          <input
+            name="firstName"
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="item">
+          <label htmlFor="firstName">Last Name :</label>
+          <input
+            name="lastName"
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      {fullName.length > 0 && <p>Full Name : {fullName}</p>}
+    </main>
   );
 }
 
